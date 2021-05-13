@@ -3,12 +3,20 @@ const schema = mongoose.Schema;
 
 var ObjectId = schema.ObjectId;
 const postSchema = new schema({
-    user: ObjectId,
-    description: String,
+    description: {
+        type: String,
+        required: true,
+        minlength: 15,
+    },
     likeCount: Number,
     dislikeCount: Number,
-    moderator: Boolean,
-    profilePic: Buffer,
+    authorId: {
+        type: mongoose.SchemaTypes.ObjectId,
+        ref: "Profile",
+    },
+    profilePic: {
+        default: false
+    },
     comments: [{
         _id: ObjectId,
         comment: String
