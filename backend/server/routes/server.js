@@ -1,24 +1,18 @@
 const express = require("express");
-const cors = require('cors');
 const passport = require('passport');
 const login = require('../routes/login');
+require('../authentication/jwt');
 
-
-const router = express.Router();
-router.use(cors());
-router.use(passport.initialize());
-
-var postsRouter = require("./posts/posts");
-var usersRouter = require("./users/users");
-
-router.use("/posts", postsRouter);
-router.use("/users", usersRouter);
-router.use('/api/auth', loginRouter);
-router.get('/api/secure',
-    passport.authenticate(['jwt'], { session: false }),
-    (req, res) => {
-        res.send('Secure response from ' + JSON.stringify(req.user));
-    }
-);
-
-module.exports = router;
+// router.use("/posts", postsRouter);
+// router.use("/users", usersRouter);
+module.exports = function (app) {
+    app.use(express.json());
+    app.use(express.urlencoded({ extended: false }));
+    app.use('/api/auth', login);
+    app.use('/api/secure',
+        passport.authenticate(['jwt'], { session: false }),
+        (req, res) => {
+            res.send('Test ' + JSON.stringify(req.user));
+        }
+    );
+};

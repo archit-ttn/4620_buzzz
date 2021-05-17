@@ -1,12 +1,12 @@
 const passport = require('passport');
 const passportGoogle = require('passport-google-oauth');
-const config = require('../config');
-const users = require('../models/main/user');
+require('dotenv').config();
+// const users = require('../models/main/user');
 
 const passportConfig = {
-    clientID: config.get('authentication.google.clientId'),
-    clientSecret: config.get('authentication.google.clientSecret'),
-    callbackURL: 'http://localhost:3000/api/authentication/google/redirect'
+    clientID: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: 'http://localhost:8000/api/auth/redirect'
 };
 
 if (passportConfig.clientID) {
@@ -15,17 +15,16 @@ if (passportConfig.clientID) {
         Users.find({ email: profile.emails[0].value }, (err, user) => {
             console.log(user);
             if (err) return done(err);
-            if (!user) {
+            if (!user.length) {
                 user = new Users({
                     email: profile.emails[0].value.toString()
                 });
                 console.log(user);
                 user.save((err) => {
-                    err ? console.log(err) : console.log('Yay');
+                    err ? console.log(err) : console.log('Added');
                 });
             }
             return done(null, user);
-
         });
     }));
 }
