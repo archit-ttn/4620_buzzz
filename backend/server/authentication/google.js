@@ -1,7 +1,7 @@
 const passport = require('passport');
 const passportGoogle = require('passport-google-oauth');
 require('dotenv').config();
-// const users = require('../models/main/user');
+const Users = require('../models/main/user');
 
 const passportConfig = {
     clientID: process.env.CLIENT_ID,
