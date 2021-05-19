@@ -15,13 +15,13 @@ function EmailLogin() {
                     <div className="form-group form-check d-flex justify-content-between text">
                         <div>
                             <input type="checkbox" className="form-check-input" id="exampleCheck1" />
-                            <label className="form-check-label" for="exampleCheck1">Remeber Me</label>
+                            <label className="form-check-label" for="exampleCheck1">Remember Me</label>
                         </div>
-                        <a href="/">Forgot Password ?</a>
+                        <a href="/">Forgot Password?</a>
 
                     </div>
                 </form>
-                <a href="/" type="submit" id="btn-signIn">SignIn</a>
+                <a href="/" type="submit" id="btn-signIn">Sign In</a>
             </div>
         </React.Fragment>
     );

@@ -7,10 +7,13 @@ function GoogleLogin() {
         <React.Fragment>
             <div className="card _card">
                 <div className="text-center">
-                    <img src={image} style={{ width: 30 + "%" }} class="" alt="..." />
+                    <img src={image} alt="To The New" />
                 </div>
                 <div className="card-body d-flex flex-column justify-content-center">
-                    <h4 className="card-title text-dark">Enter your details and Start your journey with us.</h4>
+                    <h4 className="card-title text-dark">
+                        <span>Enter your details and Start</span>
+                        <span> your journey with us.</span>
+                    </h4>
                     <h6 className="card-subtitle mb-2 text-muted">Don't stop until you're proud.</h6>
                 </div>
                 <a href="http://localhost:8000/api/auth" id="btn-google">Sign In with Google</a>

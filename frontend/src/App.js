@@ -1,7 +1,6 @@
 import './App.css';
 import Login from './components/Login/Login';
 import Posts from './components/Posts/Posts';
-import { reactLocalStorage } from 'reactjs-localstorage';
 import { BrowserRouter as Router, Redirect, Link, Switch, Route } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
@@ -16,7 +15,7 @@ function App() {
   return (
     <Switch>
       <Route exact path="/">
-        {loggedIn ? <Redirect to="/" /> : <Login />}
+        {loggedIn ? <Redirect to="/posts" /> : <Login />}
       </Route>
     </Switch>
   );

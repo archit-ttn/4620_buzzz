@@ -4,21 +4,31 @@
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  height: 70vh;
+  height: 50vh;
   border: none !important;
-  border-right: 3px solid beige !important;
-  border-radius: 0 !important;
+}
+
+img {
+  width: 100%;
+}
+
+.card-title {
+  padding: 2vh 0;
+}
+
+span {
+  display: block;
 }
 
 #btn-google {
   text-decoration: none;
   border: 1px solid #9e79f2;
-  padding: 10px;
+  padding: 1.5vh 3vh;
   color: #9e79f2;
   border-radius: 25px;
 }
 
 #btn-google:hover {
-  color: white;
+  color: #ffffff;
   background-color: #9e79f2;
 }
