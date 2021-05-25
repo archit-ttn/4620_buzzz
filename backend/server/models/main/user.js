@@ -7,6 +7,21 @@ const userSchema = new schema({
         type: String,
         required: true,
         unique: true
+    },
+    fName: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 255,
+    },
+    lName: {
+        type: String,
+        required: true,
+        minlength: 5,
+        maxlength: 255,
+    },
+    profilePic: {
+        type: String,
     }
 });
 

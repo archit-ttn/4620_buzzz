@@ -18,11 +18,14 @@ if (passportConfig.clientID) {
             if (err) return done(err);
             if (!user.length) {
                 user = new Users({
-                    email: profile.emails[0].value.toString()
+                    email: profile.emails[0].value.toString(),
+                    fName: profile.name.givenName,
+                    lName: profile.name.familyName,
+                    profilePic: profile.photos[0].value
                 });
                 console.log(user);
                 user.save((err) => {
-                    err ? console.log(err) : console.log('Added');
+                    err ? console.log(err) : console.log('Success');
                 });
             }
             return done(null, user);
