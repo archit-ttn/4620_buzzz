@@ -1,6 +1,7 @@
 const passport = require('passport');
 const passportGoogle = require('passport-google-oauth');
 require('dotenv').config();
+const cloudinary = require('../cloudinary');
 const Users = require('../models/main/user');
 
 const passportConfig = {

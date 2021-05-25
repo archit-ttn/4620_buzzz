@@ -24,6 +24,26 @@ let profileSchema = new schema({
     dateOfBirth: {
         type: Date
     },
+    website: {
+        type: String,
+        required: true,
+    },
+    designation: {
+        type: String,
+        required: true,
+    },
+    city: {
+        type: String,
+        required: true,
+    },
+    state: {
+        type: String,
+        required: true,
+    },
+    zip: {
+        type: Number,
+        required: true,
+    },
     gender: {
         type: String,
         required: true,
@@ -57,6 +77,4 @@ let profileSchema = new schema({
     }
 });
 
-module.exports = {
-    profileSchema
-};
+module.exports = mongoose.model('Profile', profileSchema);

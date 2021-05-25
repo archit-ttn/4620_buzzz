@@ -1,6 +1,7 @@
 const express = require("express");
 const passport = require('passport');
 const login = require('../routes/login');
+const createProfile = require('../routes/profile');
 require('../authentication/jwt');
 
 // router.use("/posts", postsRouter);
@@ -15,4 +16,5 @@ module.exports = function (app) {
             res.send('Test ' + JSON.stringify(req.user));
         }
     );
+    app.use('/api/createProfile', createProfile);
 };
