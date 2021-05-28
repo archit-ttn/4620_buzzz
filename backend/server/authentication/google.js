@@ -25,7 +25,7 @@ if (passportConfig.clientID) {
                 });
                 console.log(user);
                 user.save((err) => {
-                    err ? console.log(err) : console.log('Success');
+                    return (err);
                 });
             }
             return done(null, user);
