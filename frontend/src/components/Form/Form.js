@@ -45,31 +45,29 @@ let ContactForm = props => {
         let fields = formState;
         let errors = {};
         let formIsValid = true;
-
-        //firstname lastname city 
         if (!fields.firstname || !fields.lastname || !fields.city || !fields.zip || !fields.website || !fields.designation || !fields.gender || !fields.state) {
             formIsValid = false;
-            errors.alert = "Please fill all the values";
+            errors.alert = "Fill All Values";
             setError(errors);
         }
         if (typeof fields.firstname !== "undefined") {
             if (!fields.firstname.match(/^[a-zA-Z]+$/)) {
                 formIsValid = false;
-                errors.firstname = "Only letters";
+                errors.firstname = "Only Letters";
             }
             setError(errors);
         }
         if (typeof fields.lastname !== "undefined") {
             if (!fields.lastname.match(/^[a-zA-Z]+$/)) {
                 formIsValid = false;
-                errors.lastname = "Only letters";
+                errors.lastname = "Only Letters";
             }
             setError(errors);
         }
         if (typeof fields.city !== "undefined") {
             if (!fields.city.match(/^[a-zA-Z]+$/)) {
                 formIsValid = false;
-                errors.city = "Only letters";
+                errors.city = "Only Letters";
             }
             setError(errors);
         }
@@ -83,12 +81,11 @@ let ContactForm = props => {
         if (typeof fields.website !== "undefined") {
             if (!fields.website.match(/^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$/)) {
                 formIsValid = false;
-                errors.website = "Please enter a valid url";
+                errors.website = "Valid URL!";
             }
             setError(errors);
         }
         return formIsValid;
-        //website 
     };
     return (
         <form name="profile_form" onSubmit={submitForm}>
@@ -140,7 +137,7 @@ let ContactForm = props => {
                         value={formState.website}
                         onChange={handleChange}
                         id="website"
-                        placeholder="https://reactjs.org" />
+                        placeholder="www.google.com" />
                     <span style={{ color: "red" }}>{error.website}</span>
 
                 </div>
